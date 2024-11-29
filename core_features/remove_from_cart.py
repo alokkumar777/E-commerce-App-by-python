@@ -4,3 +4,4 @@ def remove_from_cart(cart):
         print("\nYour cart 🛒 is empty! 👍, There is nothing to remove.")
         return
 
+    

@@ -21,17 +21,25 @@ def add_to_cart(pc: dict, cart: list):
                         print(f"\nOnly {product["stock"]} units are available.")
                         return
                     
-                    # !Add to cart
-                    item = {
-                        "ID": id,
-                        "name": product["name"],
-                        "price": product["price"],
-                        "quantity": quantity
-                    }
-                    cart.append(item)
+                    # Check if the product is already in the cart
+                    product_in_cart = next((item for item in cart if item["ID"] == id), None)
+                    if product_in_cart:
+                        # Update the quantity of the existing product
+                        product_in_cart["quantity"] += quantity
+                        print(f"\nUpdated the quantity of {product['name']} to {product_in_cart['quantity']}.")
+                    else:
+                        # Add new item to the cart
+                        item = {
+                            "ID": id,
+                            "name": product["name"],
+                            "price": product["price"],
+                            "quantity": quantity,
+                        }
+                        cart.append(item)
+                        print(f"\nAdded {quantity} quantity of {product["name"]}{"s" if quantity > 1 else ""} to the cart.")
+                        
                     # !Reduce stock
                     product["stock"] -= quantity
-                    print(f"\nAdded {quantity} quantity of {product["name"]}{"s" if quantity > 1 else ""} to the cart.")
                     break
 
                 # TODO except ValueError:
