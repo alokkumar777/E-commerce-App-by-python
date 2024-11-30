@@ -2,6 +2,9 @@
 def add_to_cart(pc: dict, cart: list):
     while True:
         product_name = input("\nEnter the product name to add to the cart and 'exit' when you done: ").strip().lower()
+        if product_name == 'exit':
+            break
+        
         product_found = False # set as false 
         for id, product in pc.products_catalog.items():
             # product validation 
@@ -23,6 +26,13 @@ def add_to_cart(pc: dict, cart: list):
                     
                     # Check if the product is already in the cart
                     product_in_cart = next((item for item in cart if item["ID"] == id), None)
+                    # --------------------------------------
+                    # product_in_cart = None
+                    # for item in cart:
+                    #     if item["ID"] == id:
+                    #         product_in_cart = item
+                    #         break
+                    # --------------------------------------
                     if product_in_cart:
                         # Update the quantity of the existing product
                         product_in_cart["quantity"] += quantity
@@ -46,8 +56,6 @@ def add_to_cart(pc: dict, cart: list):
                 #     print("Invalid Input")
                 #     return
 
-        if product_name == 'exit':
-            break
 
         if not product_found:
             print("\nProduct not found. Check the spelling and try again")

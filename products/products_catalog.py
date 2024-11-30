@@ -220,7 +220,7 @@ products_catalog = {
         "name": "Novel",
         "description": "Bestseller fiction paperback",
         "price": 299.00,
-        "stock": 75,
+        "stock": 2,
     },
 
     # Sports & Fitness

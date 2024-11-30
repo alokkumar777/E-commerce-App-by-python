@@ -37,7 +37,7 @@ def main_menu():
                 case 3:
                     vc.view_cart(cart)
                 case 4:
-                    rfc.remove_from_cart(cart)
+                    rfc.remove_from_cart(pc, cart)
                 case 5:
                     place_order()
                 case 6:
