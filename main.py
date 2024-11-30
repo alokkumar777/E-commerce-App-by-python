@@ -7,6 +7,8 @@ from core_features import place_order as po
 from core_features import remove_from_cart as rfc
 from core_features import view_cart as vc
 from core_features import view_order_history as voh
+from core_features import display_cart as dc
+from core_features import cancel_order as co
 
 cart = []
 order_history = []
@@ -21,8 +23,8 @@ def main_menu():
     4. Remove from Cart
     5. Place Order
     6. View Order History
-    7. Search Product
-    8. Save and Exit
+    7. Cancel Order
+    8. Exit
     """
         print(menu)
 
@@ -35,17 +37,16 @@ def main_menu():
                 case 2:
                     atc.add_to_cart(pc, cart)
                 case 3:
-                    vc.view_cart(cart)
+                    vc.view_cart(dc, cart)
                 case 4:
                     rfc.remove_from_cart(pc, cart)
                 case 5:
-                    place_order()
+                    po.place_order(dc, cart, order_history)
                 case 6:
-                    view_order_history()
+                    voh.view_order_history(order_history)
                 case 7:
-                    search_product()
+                    co.cancel_order(order_history)
                 case 8:
-                    save_data()
                     print("Exiting the system. Goodbye!")
                     break
                 case _:
