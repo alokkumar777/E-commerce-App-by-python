@@ -11,7 +11,7 @@ from core_features import display_cart as dc
 from core_features import cancel_order as co
 
 cart = []
-order_history = []
+past_order = []
 
 def main_menu():
     while True:
@@ -22,7 +22,7 @@ def main_menu():
     3. View Cart
     4. Remove from Cart
     5. Place Order
-    6. View Order History
+    6. View Past Order
     7. Cancel Order
     8. Exit
     """
@@ -41,11 +41,11 @@ def main_menu():
                 case 4:
                     rfc.remove_from_cart(pc, cart)
                 case 5:
-                    po.place_order(dc, cart, order_history)
+                    po.place_order(dc, cart, past_order)
                 case 6:
-                    voh.view_order_history(order_history)
+                    voh.view_order_history(past_order)
                 case 7:
-                    co.cancel_order(order_history)
+                    co.cancel_order(past_order)
                 case 8:
                     print("Exiting the system. Goodbye!")
                     break

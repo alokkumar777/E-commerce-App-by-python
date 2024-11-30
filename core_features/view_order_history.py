@@ -1,13 +1,13 @@
-def view_order_history(order_history: list):
-    if not order_history:
-        print("\nYou have no order history")
+def view_order_history(past_order: list):
+    if not past_order:
+        print("\nYou ordered nothing yet")
         return
 
-    # print(order_history)
+    # print(past_order)
 
     total_cost = 0
     print("\nYour past orders list 📃")
-    for i, item in enumerate(order_history, start=1):
+    for i, item in enumerate(past_order, start=1):
         # ID = item["ID"]
         name = item["name"]
         quantity = item["quantity"]

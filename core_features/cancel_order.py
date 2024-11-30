@@ -1,5 +1,5 @@
-def cancel_order(order_history: list):
-    if not order_history:
+def cancel_order(past_order: list):
+    if not past_order:
         print("\nYou didn't ordered anything yet")
         return
     

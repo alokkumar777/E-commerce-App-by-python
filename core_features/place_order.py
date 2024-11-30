@@ -1,5 +1,5 @@
 import time
-def place_order(dc, cart: list, order_history: list):
+def place_order(dc, cart: list, past_order: list):
     # Use display_cart to show cart details
     cart_data, total_cost = dc.display_cart(cart)
     if cart_data is None:
@@ -46,7 +46,7 @@ def place_order(dc, cart: list, order_history: list):
         print(f"Payment Method: {payment_method}")
         print(f"✅ Order Placed Successful! 🎉")
 
-        order_history.extend(cart_data)
+        past_order.extend(cart_data)
         # clear cart after order placed
         cart.clear()
         # return {
